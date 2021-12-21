@@ -10,16 +10,30 @@
 
 <body>
 <% if flash[:notice] %>
-  <% div class="notification.is-primary.global-notification" %>
-  <p class="notice">
-    <% notice %> </p>
+  <div class="notification is-primary global-notification">
+    <p class="notice">
+      <% notice %> </p>
+  </div>
 <% end %>
 
 <% if flash[:alert] %>
-  <div class="notification is-danger global-notification"></div>
-  <p class="alert"><%= alert %></p>
-  </p>
+  <div class="notification is-danger global-notification">
+  <p class="alert">
+    <% alert %></p>
+  </div>
 <% end %>
+<div class="navbar is-info">
+<div class="navbar-brand">
+<%link_to root_path, class: "navbar-item" do%>
+<h1 class="title is-5">Twitter</h1>
+<% end %>
+  <div class="navbar-burger burger" data-target="navbarExemple">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+</div>
 <%= yield %>
 </body>
 </html>
