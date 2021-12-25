@@ -1,9 +1,11 @@
-<p style="color: green"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <%= render 'trends' %>
+      <%= render 'feed' %>
+      <%= render 'how-to-follow' %>
+    </div>
+  </div>
+</section>
 
-<h1>Tweets</h1>
 
-<div id="tweets">
-  <%= render @tweets %>
-</div>
-
-<%= link_to "New tweet", new_tweet_path %>
