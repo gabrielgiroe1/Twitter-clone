@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /tweets or /tweets.json
   def index
     @tweets = Tweet.all.order("created_at DESC")
@@ -59,13 +59,14 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:tweet)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:tweet)
+  end
 end
